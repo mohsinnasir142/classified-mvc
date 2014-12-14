@@ -13,6 +13,9 @@
 
 	    <!-- Bootstrap Core CSS -->
 	    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+
+        <!-- Bootstrap New Ticker CSS -->
+        <link href="~/assets/css/bootstrap-theme.min.css" rel="stylesheet" />
 	    
 	    <!-- Customizable CSS -->
 	    <link rel="stylesheet" href="~/assets/css/main.css">
@@ -747,7 +750,7 @@
         </div>
     </div>
 </footer>
-        <div class="config">
+      @*  <div class="config">
 		<div class="config-options">
 			<h4>Pages</h4>
 			<ul class="list-unstyled animate-dropdown">
@@ -796,7 +799,7 @@
 			</ul>
 		</div>
 		<a class="show-theme-options" href="#"><i class="fa fa-wrench"></i></a>
-	</div>
+	</div>*@
 
       @*  @Scripts.Render("~/assets/js")
         @RenderSection("scripts", required: false)*@
@@ -806,6 +809,11 @@
 	<script src="~/assets/js/jquery-1.11.1.min.js"></script>
 	
 	<script src="~/assets/js/bootstrap.min.js"></script>
+        <!-- Bootstrap js for New Ticker home -->
+        <script src="~/assets/js/jquery.bootstrap.newsbox.js"></script>
+        <script src="~/assets/js/jquery.bootstrap.newsbox.min.js"></script>
+        <!--End -->
+
 	
 	<script src="~/assets/js/bootstrap-hover-dropdown.min.js"></script>
 	<script src="~/assets/js/owl.carousel.min.js"></script>
@@ -836,6 +844,20 @@
 	        $('.show-theme-options').delay(2000).trigger('click');
 	    });
 	</script>
+    <script type="text/javascript">
+            $(function () {
+                $(".demo1").bootstrapNews({
+                    newsPerPage: 1,
+                    autoplay: true,
+                    pauseOnHover: true,
+                    direction: 'up',
+                    newsTickerInterval: 4000,
+                    onToDo: function () {
+                        //console.log(this);
+                    }
+                });
+            });
+</script>
  @RenderSection("scripts", required: false)	
     </body>
 </html>
