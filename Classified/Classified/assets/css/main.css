@@ -1543,8 +1543,13 @@ a {
 }
 .sidebar .side-menu nav .nav > li > .mega-menu .yamm-content .dropdown-banner-holder {
   position: absolute;
-  right: -36px;
+  right: -10px;
   top: -8px;
+}
+.dropdown-banner-holder img
+{
+    opacity:0.2;
+    z-index: -999999999999999;
 }
 .sidebar .side-menu2 nav .nav li a {
   padding: 14.3px 15px;
@@ -1760,7 +1765,8 @@ a {
 #owl-main {
   text-align: center;
   cursor: default;
-  height: 368px;
+  /*height: 368px;*/
+  height: 200px;
 }
 #owl-main .owl-controls {
   display: inline-block;
@@ -2114,7 +2120,8 @@ a {
   background-color: #FFFFFF;
   background-position: center 55%;
   background-size: cover;
-  height: 368px;
+  /*height: 368px;*/
+  height: 200px;
 }
 #owl-main .item .caption {
   color: #636363;
@@ -5162,4 +5169,33 @@ a {
 }
 .body-content .sign-in-page .register-form .form-group {
   margin-bottom: 25px;
+}
+
+.glyphicon
+{
+    margin-right:4px !important; /*override*/
+}
+
+.pagination .glyphicon
+{
+    margin-right:0px !important; /*override*/
+}
+
+.pagination a
+{
+    color:#555;
+}
+
+.panel ul
+{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+}
+
+.news-item
+{
+    padding:0px;
+    margin:0px;
+    
 }

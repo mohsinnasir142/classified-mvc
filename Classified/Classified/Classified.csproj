@@ -199,12 +199,14 @@
     <Content Include="assets\css\animate.min.css" />
     <Content Include="assets\css\blue.css" />
     <Content Include="assets\css\bootstrap-select.min.css" />
+    <Content Include="assets\css\bootstrap-theme.min.css" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\config.css" />
     <Content Include="assets\css\dark-green.css" />
     <Content Include="assets\css\font-awesome.min.css" />
     <Content Include="assets\css\grabbing.html" />
     <Content Include="assets\css\green.css" />
+    <Content Include="assets\css\images\1.png" />
     <Content Include="assets\css\images\delete.html" />
     <Content Include="assets\css\images\star-small.png" />
     <Content Include="assets\css\images\star.html" />
@@ -235,8 +237,12 @@
     <Content Include="assets\images\banners\7.jpg" />
     <Content Include="assets\images\banners\8.jpg" />
     <Content Include="assets\images\banners\9.jpg" />
+    <Content Include="assets\images\banners\autos.png" />
     <Content Include="assets\images\banners\banner-side.png" />
     <Content Include="assets\images\banners\cat-banner-1.jpg" />
+    <Content Include="assets\images\banners\education.png" />
+    <Content Include="assets\images\banners\electronics.png" />
+    <Content Include="assets\images\banners\events.png" />
     <Content Include="assets\images\banners\f1.jpg" />
     <Content Include="assets\images\banners\f2.jpg" />
     <Content Include="assets\images\banners\f3.jpg" />
@@ -245,6 +251,10 @@
     <Content Include="assets\images\banners\fashion.jpg" />
     <Content Include="assets\images\banners\fr1.jpg" />
     <Content Include="assets\images\banners\fr2.jpg" />
+    <Content Include="assets\images\banners\home-appliances.png" />
+    <Content Include="assets\images\banners\matrimonial.png" />
+    <Content Include="assets\images\banners\misc.png" />
+    <Content Include="assets\images\banners\real_estates.png" />
     <Content Include="assets\images\blank.gif" />
     <Content Include="assets\images\blog-post\1.jpg" />
     <Content Include="assets\images\blog-post\10.jpg" />
@@ -390,6 +400,8 @@
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\echo.min.js" />
     <Content Include="assets\js\jquery-1.11.1.min.js" />
+    <Content Include="assets\js\jquery.bootstrap.newsbox.js" />
+    <Content Include="assets\js\jquery.bootstrap.newsbox.min.js" />
     <Content Include="assets\js\jquery.easing-1.3.min.js" />
     <Content Include="assets\js\jquery.rateit.min.js" />
     <Content Include="assets\js\lightbox.min.js" />

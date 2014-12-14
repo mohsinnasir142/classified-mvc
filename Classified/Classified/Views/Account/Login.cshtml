@@ -1,48 +1,104 @@
 ﻿@model Classified.Models.LoginModel
 
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
 </hgroup>
-
-<section id="loginForm">
-<h2>Use a local account to log in.</h2>
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+<div class="body-content outer-top-bd">
+	<div class="container">
+<div class="sign-in-page inner-bottom-sm">
+			<div class="row">
+         <div class="col-md-6 col-sm-6 sign-in">
+	<h4 class="">sign in</h4>
+	<p class="">Hello, Welcome to your account.</p>
+	<div class="social-sign-in outer-top-xs">
+		<a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
+		<a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
+	</div>
+@using (Html.BeginForm("account", "login", 
+            new { ReturnUrl = ViewBag.ReturnUrl },
+            FormMethod.Post, new { @class = "register-form outer-top-xs" }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Log in Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
+    
+		   <div class="form-group">
+                @Html.LabelFor(m => m.UserName,new { @class = "info-title" })
+                @Html.TextBoxFor(m => m.UserName,new { @class = "form-control unicase-form-control text-input" })
                 @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password,new { @class = "info-title" })
+                @Html.PasswordFor(m => m.Password,new { @class = "form-control unicase-form-control text-input" })
                 @Html.ValidationMessageFor(m => m.Password)
-            </li>
-            <li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-            </li>
-        </ol>
-        <input type="submit" value="Log in" />
-    </fieldset>
-    <p>
+            </div>
+            <div class="radio outer-xs">
+               @Html.CheckBoxFor(m => m.RememberMe) @Html.LabelFor(m => m.RememberMe)
+                <a href="#" class="forgot-password pull-right">Forgot your Password?</a>
+            </div>
+       
+        <input type="submit" value="Log in" class="btn-upper btn btn-primary checkout-page-button" />
+    
+    @*<p>
         @Html.ActionLink("Register", "Register") if you don't have an account.
-    </p>
+    </p>*@
 }
-</section>
+             </div>
 
-<section class="social" id="socialLoginForm">
+                <div class="col-md-6 col-sm-6 create-new-account">
+	<h4 class="checkout-subtitle">create a new account</h4>
+	<p class="text title-tag-line">Create your own Unicase account.</p>
+	@using (Html.BeginForm("account", "register", 
+            new { ReturnUrl = ViewBag.ReturnUrl },
+            FormMethod.Post, new { @class = "register-form outer-top-xs" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+		   <div class="form-group">
+                @Html.LabelFor(m => m.UserName,new { @class = "info-title" })
+                @Html.TextBoxFor(m => m.UserName,new { @class = "form-control unicase-form-control text-input" })
+                @Html.ValidationMessageFor(m => m.UserName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password,new { @class = "info-title" })
+                @Html.PasswordFor(m => m.Password,new { @class = "form-control unicase-form-control text-input" })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword,new { @class = "info-title" })
+                @Html.PasswordFor(m => m.ConfirmPassword,new { @class = "form-control unicase-form-control text-input" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+     
+     
+	  	<input type="submit" class="btn-upper btn btn-primary checkout-page-button" value="Sign UP">
+ }
+	<span class="checkout-subtitle outer-top-xs">Sign Up Today And You'll Be Able To :  </span>
+	<div class="checkbox">
+	  	<label class="checkbox">
+		  	<input type="checkbox" id="speed" value="option1"> Speed your way through the checkout.
+		</label>
+		<label class="checkbox">
+		  	<input type="checkbox" id="track" value="option2"> Track your orders easily.
+		</label>
+		<label class="checkbox">
+		  	<input type="checkbox" id="keep" value="option3"> Keep a record of all your purchases.
+		</label>
+	</div>
+</div>
+
+
+
+</div></div>
+        </div></div>
+@*<section class="social" id="socialLoginForm">
     <h2>Use another service to log in.</h2>
     @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-</section>
+</section>*@
 
 @*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
