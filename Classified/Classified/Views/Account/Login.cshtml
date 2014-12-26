@@ -18,7 +18,7 @@
 		<a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
 		<a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
 	</div>
-@using (Html.BeginForm("account", "login", 
+@using (Html.BeginForm("login", "account", 
             new { ReturnUrl = ViewBag.ReturnUrl },
             FormMethod.Post, new { @class = "register-form outer-top-xs" }))
 {
@@ -51,7 +51,7 @@
                 <div class="col-md-6 col-sm-6 create-new-account">
 	<h4 class="checkout-subtitle">create a new account</h4>
 	<p class="text title-tag-line">Create your own Unicase account.</p>
-	@using (Html.BeginForm("account", "register", 
+	@using (Html.BeginForm("register", "account", 
             new { ReturnUrl = ViewBag.ReturnUrl },
             FormMethod.Post, new { @class = "register-form outer-top-xs" }))
 {

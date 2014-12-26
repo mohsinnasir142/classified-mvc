@@ -1,33 +1,52 @@
-﻿@model Classified.Models.RegisterModel
+﻿@using CaptchaMvc.HtmlHelpers
+@model Classified.Models.RegisterModel
 @{
     ViewBag.Title = "Register";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
+    <h2>Create a new account to post your Ad.</h2>
 </hgroup>
 
-@using (Html.BeginForm()) {
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
+    @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword)
-            </li>
-        </ol>
+     <fieldset>
+            <legend>Registration Form</legend>
+            <table style="width: 100%;">
+                <tr>
+                    <td>@Html.LabelFor(m => m.UserName) @Html.TextBoxFor(m => m.UserName) </td>
+
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(m => m.Password) @Html.PasswordFor(m => m.Password) </td>
+
+                    <td>@Html.LabelFor(m => m.ConfirmPassword) @Html.PasswordFor(m => m.ConfirmPassword) </td>
+
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(m => m.FirstName) @Html.TextBoxFor(m => m.FirstName) </td>
+
+                    <td>@Html.LabelFor(m => m.LastName) @Html.TextBoxFor(m => m.LastName) </td>
+
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(m => m.EmailAddress) @Html.TextBoxFor(m => m.EmailAddress) </td>
+
+                    <td>@Html.LabelFor(m => m.Mobile) @Html.TextBoxFor(m => m.Mobile) </td>
+
+                </tr>
+                <tr>
+                    <td>@Html.Captcha("Refresh", "Enter Text of Image", 5, "Is required field.", true) </td>
+
+                </tr>
+                </table>
+      
         <input type="submit" value="Register" />
     </fieldset>
 }

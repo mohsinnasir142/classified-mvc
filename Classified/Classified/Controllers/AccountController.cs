@@ -10,6 +10,9 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using Classified.Filters;
 using Classified.Models;
+using CaptchaMvc.Attributes;
+using CaptchaMvc.HtmlHelpers;
+using CaptchaMvc.Interface;
 
 namespace Classified.Controllers
 {
@@ -17,6 +20,12 @@ namespace Classified.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        UserManager userManager;
+
+        public AccountController()
+        {
+            userManager = new UserManager();
+        }
         //
         // GET: /Account/Login
 
@@ -74,19 +83,38 @@ namespace Classified.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if (this.IsCaptchaValid("Captcha is not valid"))
             {
-                // Attempt to register the user
-                try
+
+                if (ModelState.IsValid)
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    // Attempt to register the user
+                    try
+                    {
+                        WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                        WebSecurity.Login(model.UserName, model.Password);
+                        model.Role = "basic";
+                        model.DateAdded = DateTime.Today;
+                        userManager.registerUser(model);
+                        Roles.AddUserToRole(model.UserName, "basic");
+                        return RedirectToAction("Index", "Home");
+
+                    }
+                    catch (MembershipCreateUserException e)
+                    {
+                        ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                    }
                 }
-                catch (MembershipCreateUserException e)
+                else
                 {
-                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                    return View(model);
                 }
+                // If we got this far, something failed, redisplay form  
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Error: captcha is not valid.";
+                return View(model);
             }
 
             // If we got this far, something failed, redisplay form
