@@ -1,0 +1,73 @@
+﻿@model Classified.Models.UserModel
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Profile</h2>
+
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+ 
+        
+    <fieldset>
+            <legend>Edit Profile</legend>
+            <table style="width: 100%;">
+                <tr>
+                    <td>@Html.LabelFor(m => m.UserName) @Html.TextBoxFor(m => m.UserName) </td>
+
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(m => m.Password) @Html.PasswordFor(m => m.Password) </td>
+
+                    <td>@Html.LabelFor(m => m.ConfirmPassword) @Html.PasswordFor(m => m.ConfirmPassword) </td>
+
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(m => m.FirstName) @Html.TextBoxFor(m => m.FirstName) </td>
+
+                    <td>@Html.LabelFor(m => m.LastName) @Html.TextBoxFor(m => m.LastName) </td>
+
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(m => m.EmailAddress) @Html.TextBoxFor(m => m.EmailAddress) </td>
+
+                    <td>@Html.LabelFor(m => m.Mobile) @Html.TextBoxFor(m => m.Mobile) </td>
+
+                </tr>
+                <tr>
+                   <td>@Html.LabelFor(m => m.Address) @Html.TextBoxFor(m => m.Address) </td>
+
+                    <td>@Html.LabelFor(m => m.Country) @Html.TextBoxFor(m => m.Country) </td>
+                </tr>
+                <tr>
+                   <td>@Html.LabelFor(m => m.City) @Html.TextBoxFor(m => m.City) </td>
+
+                    <td>@Html.LabelFor(m => m.Longitude) @Html.TextBoxFor(m => m.Longitude) </td>
+                </tr>
+                <tr>
+                   <td>@Html.LabelFor(m => m.Latitude) @Html.TextBoxFor(m => m.Latitude) </td>
+
+                    <td>@Html.LabelFor(m => m.Other) @Html.TextBoxFor(m => m.Other) </td>
+                </tr>
+                <tr>
+                    <td>Profile Pic</td>
+                </tr>
+                </table>
+      
+        <input type="submit" value="Register" />
+    </fieldset>
+    }
+
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Home", routeValues: null, htmlAttributes: new { id = "HomeLink" })
+</div>
+
